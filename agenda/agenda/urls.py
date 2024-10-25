@@ -14,6 +14,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from msilib.schema import Patch
 from tkinter.font import names
 
 from django.contrib import admin
@@ -27,6 +28,7 @@ urlpatterns = [
     path('agenda/', views.lista_eventos),
     path('agenda/evento/', views.evento),
     path('agenda/evento/submit', views.submit_evento),
+    path('agenda/evento/delete/<int:id_evento>/', views.delete_evento),
     path('', RedirectView.as_view(url='/agenda/')),
     path('login/', views.login_user),
     path('login/submit', views.submit_login),
